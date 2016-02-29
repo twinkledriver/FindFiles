@@ -1,0 +1,15 @@
+d:\documents\visual studio 2012\Projects\Wpf_FindFiles\Wpf_FindFiles\bin\Debug\Wpf_FindFiles.exe.config
+d:\documents\visual studio 2012\Projects\Wpf_FindFiles\Wpf_FindFiles\bin\Debug\Wpf_FindFiles.exe
+d:\documents\visual studio 2012\Projects\Wpf_FindFiles\Wpf_FindFiles\bin\Debug\Wpf_FindFiles.pdb
+d:\documents\visual studio 2012\Projects\Wpf_FindFiles\Wpf_FindFiles\obj\Debug\Wpf_FindFiles.csprojResolveAssemblyReference.cache
+d:\documents\visual studio 2012\Projects\Wpf_FindFiles\Wpf_FindFiles\obj\Debug\MainWindow.g.cs
+d:\documents\visual studio 2012\Projects\Wpf_FindFiles\Wpf_FindFiles\obj\Debug\App.g.cs
+d:\documents\visual studio 2012\Projects\Wpf_FindFiles\Wpf_FindFiles\obj\Debug\GeneratedInternalTypeHelper.g.cs
+d:\documents\visual studio 2012\Projects\Wpf_FindFiles\Wpf_FindFiles\obj\Debug\Wpf_FindFiles_MarkupCompile.cache
+d:\documents\visual studio 2012\Projects\Wpf_FindFiles\Wpf_FindFiles\obj\Debug\Wpf_FindFiles_MarkupCompile.lref
+d:\documents\visual studio 2012\Projects\Wpf_FindFiles\Wpf_FindFiles\obj\Debug\MainWindow.baml
+d:\documents\visual studio 2012\Projects\Wpf_FindFiles\Wpf_FindFiles\obj\Debug\Wpf_FindFiles.g.resources
+d:\documents\visual studio 2012\Projects\Wpf_FindFiles\Wpf_FindFiles\obj\Debug\Wpf_FindFiles.Properties.Resources.resources
+d:\documents\visual studio 2012\Projects\Wpf_FindFiles\Wpf_FindFiles\obj\Debug\Wpf_FindFiles.csproj.GenerateResource.Cache
+d:\documents\visual studio 2012\Projects\Wpf_FindFiles\Wpf_FindFiles\obj\Debug\Wpf_FindFiles.exe
+d:\documents\visual studio 2012\Projects\Wpf_FindFiles\Wpf_FindFiles\obj\Debug\Wpf_FindFiles.pdb
