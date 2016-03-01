@@ -4,7 +4,7 @@
         xmlns:local="clr-namespace:Wpf_FindFiles"
         Title="FindFiles" Height="501" Width="571">
     <Window.Resources>
-        <local:NumberConverter x:Key="FileSizeConverter"/>
+        <!--<local:NumberConverter x:Key="FileSizeConverter"/>-->
     </Window.Resources>
     <DockPanel HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Margin="10" >
         <StatusBar x:Name="statusBar"  HorizontalAlignment="Stretch" DockPanel.Dock="Bottom">
@@ -15,7 +15,7 @@
             <Button x:Name="btnMove" Content="移动" Margin="10" Click="btnMove_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100"/>
             <Button x:Name="btnOpen" Content="打开" Margin="10" Click="btnOpen_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100"/>
             <Button x:Name="打开文件夹" Content="打开文件夹" Margin="10" Click="btnOpenFolder_Click" HorizontalAlignment="Left" VerticalAlignment="Top" Width="100"/>
-            
+
 
         </StackPanel>
 
@@ -26,10 +26,10 @@
                     <ColumnDefinition Width="421*"/>
                 </Grid.ColumnDefinitions>
                 <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="25,22,0,0" TextWrapping="Wrap" Text="我要查大于" VerticalAlignment="Top" Width="120" />
-                <TextBox x:Name="txtFileSize" HorizontalAlignment="Left" Height="23" Margin="102,19,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" Grid.Column="1" TextChanged="txtFileSize_TextChanged"/>
+                <TextBox x:Name="txtFileSize" HorizontalAlignment="Left" Height="23" Margin="102,19,0,0" TextWrapping="Wrap" Text="100" VerticalAlignment="Top" Width="120" Grid.Column="1" TextChanged="txtFileSize_TextChanged"/>
                 <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="238,22,0,0" TextWrapping="Wrap" Text="MB的文件" VerticalAlignment="Top"/>
 
-                <Button x:Name="btnBeginSearch"    Content="开始搜索" Grid.Column="1" Click="btnBeginSearch_Click" HorizontalAlignment="Left" Margin="310,18,0,0" VerticalAlignment="Top" Width="75" Height="23"/>
+                <Button x:Name="btnBeginSearch"    Content="开始搜索" Grid.Column="1" Click="btnBeginSearch_Click" HorizontalAlignment="Left" Margin="307,18,0,0" VerticalAlignment="Top" Width="74" Height="23"/>
                 <Button x:Name="btnCancelSearch"    Content="取消搜索" Grid.Column="1" Click="btnCancelSearch_Click" HorizontalAlignment="Left" Margin="410,18,0,0" VerticalAlignment="Top" Width="75" Height="23"/>
 
                 <TextBlock Grid.Column="1" HorizontalAlignment="Left" Margin="25,59,0,0" TextWrapping="Wrap" Text="搜索位置：" VerticalAlignment="Top" Width="74"/>
