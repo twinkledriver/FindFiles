@@ -2,10 +2,12 @@
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:local="clr-namespace:Wpf_FindFiles"
+        WindowStartupLocation="CenterScreen"
         Title="FindFiles" Height="501" Width="571">
     <Window.Resources>
         <!--<local:NumberConverter x:Key="FileSizeConverter"/>-->
     </Window.Resources>
+    
     <DockPanel HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Margin="10" >
         <StatusBar x:Name="statusBar"  HorizontalAlignment="Stretch" DockPanel.Dock="Bottom">
             <TextBlock x:Name="lbllnfo"/>
