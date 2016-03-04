@@ -5,7 +5,7 @@
         WindowStartupLocation="CenterScreen"
         Title="FindFiles" Height="501" Width="571">
     <Window.Resources>
-        <!--<local:NumberConverter x:Key="FileSizeConverter"/>-->
+        <local:NumberConverter x:Key="FileSizeConverter"/>
     </Window.Resources>
     
     <DockPanel HorizontalAlignment="Stretch"  VerticalAlignment="Stretch" Margin="10" >

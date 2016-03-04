@@ -10,11 +10,11 @@ none
 false
 DEBUG;TRACE
 d:\documents\visual studio 2012\Projects\Wpf_FindFiles\Wpf_FindFiles\App.xaml
-11151548125
+21200768654
 
-7958577033
+8617709293
 131071118929
-MainWindow.xaml;
+MainWindow.xaml;ShowFileCopyOrMove.xaml;
 
-True
+False
 

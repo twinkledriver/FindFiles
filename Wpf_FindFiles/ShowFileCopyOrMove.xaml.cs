@@ -13,27 +13,27 @@ using System.Windows.Shapes;
 
 namespace Wpf_FindFiles
 {
-    /// <summary>
-    /// ShowFileCopyOrMove.xaml 的交互逻辑
-    /// </summary>
     public partial class ShowFileCopyOrMove : Window
     {
         public ShowFileCopyOrMove()
         {
             InitializeComponent();
         }
-
-     public string Information
+        /// <summary>
+        /// 线程安全的显示字串属性
+        /// </summary>
+        public string Information
         {
             set
             {
                 Action<string> del = (info) =>
-                    {
-                        lbllnfo.Text = info;
-                    };
+                {
+                    lblInfo.Text = info;
+                };
                 Dispatcher.Invoke(del, value);
             }
         }
 
-    
+
+    }
 }

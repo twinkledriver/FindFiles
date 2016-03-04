@@ -32,27 +32,41 @@ namespace Wpf_FindFiles
         private CancellationTokenSource cts = null;
         private ShowFileCopyOrMove win = null;
 
-        Action<String> showInfo = null;
-
-
-
         public MainWindow()
         {
             InitializeComponent();
+            Init();
         }
 
+        Action<String> showInfo = null;
         Action<bool> EnableSearchButton = null;
 
-        private void txtFileSize_TextChanged(object sender, TextChangedEventArgs e)
+        private void Init()
         {
+            folderBrowserDialog = new FolderBrowserDialog();
+            folderBrowserDialog.Description = "选择要搜索的位置";
+
+            FoundFiles = new ObservableCollection<FoundFile>();
+            dgFiles.ItemsSource = FoundFiles;
+
+            showInfo = (info) =>
+            {
+                lbllnfo.Text = info;
+
+            };
+            EnableSearchButton = (Enabled) =>
+            {
+                btnBeginSearch.IsEnabled = Enabled;
+            };
 
         }
+
 
         private void searchFiles(String Location, long fileLength)
         {
             DirectoryInfo dir = null;
             List<FileInfo> files = null;
-            FoundFile foundFile=null;
+            FoundFile foundFile = null;
             try
             {
                 dir = new DirectoryInfo(Location);
@@ -88,7 +102,7 @@ namespace Wpf_FindFiles
                         Dispatcher.BeginInvoke(addFileDelegte, foundFile);
                     }
                 }
-                  foreach (var directory in dir.GetDirectories())
+                foreach (var directory in dir.GetDirectories())
                 {
                     searchFiles(directory.FullName, fileLength);
                 }
@@ -98,15 +112,15 @@ namespace Wpf_FindFiles
                 Dispatcher.Invoke(showInfo, dir.Name + "无权限访问");
 
             }
-        
-}
+
+        }
 
         private void btnChooseLocation_Click(object sender, RoutedEventArgs e)
         {
             ChooseLocation();
         }
 
-     private void ChooseLocation()
+        private void ChooseLocation()
         {
             if (folderBrowserDialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
             {
@@ -114,7 +128,7 @@ namespace Wpf_FindFiles
             }
         }
 
-     
+
 
         private void btnBeginSearch_Click(object sender, RoutedEventArgs e)
         {
@@ -137,24 +151,24 @@ namespace Wpf_FindFiles
                     Dispatcher.Invoke(EnableSearchButton, true);
 
                 });
-             try
+            try
             {
                 tsk.Start();
 
             }
-             catch (Exception ex)
-             {
-                 lbllnfo.Text = ex.Message;
-                 //如果收到取消请求
-                 if (cts.IsCancellationRequested)
-                 {
-                     Dispatcher.Invoke(showInfo, "搜索已取消");
-                     Dispatcher.Invoke(EnableSearchButton, true);
-                     return;
-                 }
-                 else
-                     Dispatcher.Invoke(EnableSearchButton, true);
-             }
+            catch (Exception ex)
+            {
+                lbllnfo.Text = ex.Message;
+                //如果收到取消请求
+                if (cts.IsCancellationRequested)
+                {
+                    Dispatcher.Invoke(showInfo, "搜索已取消");
+                    Dispatcher.Invoke(EnableSearchButton, true);
+                    return;
+                }
+                else
+                    Dispatcher.Invoke(EnableSearchButton, true);
+            }
         }
 
         private void btnCancelSearch_Click(object sender, RoutedEventArgs e)
@@ -247,6 +261,62 @@ namespace Wpf_FindFiles
             }
         }
 
+        private void btnOpenFolder_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFolder();
+        }
 
+        private void OpenFolder()
+        {
+            int index = dgFiles.SelectedIndex;
+            if (index != -1 && index < FoundFiles.Count)
+            {
+                try
+                {
+                    String ChoosedFile = FoundFiles[index].Location;
+                    Process.Start(ChoosedFile);
+                }
+                catch (Exception ex)
+                {
+                    System.Windows.Forms.MessageBox.Show(ex.ToString());
+                }
+            }
+        }
+
+        private void MainWindow_Closing(object sender, System.ComponentModel.CancelEventArgs e)
+        {
+            if (win != null)
+                win.Close();
+        }
+
+        private void btnOpen_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFile();
+        }
+        private void OpenFile()
+        {
+            int index = dgFiles.SelectedIndex;
+            if (index != -1 && index < FoundFiles.Count)
+            {
+                try
+                {
+
+                    String ChoosedFile = FoundFiles[index].Location + @"\\" + FoundFiles[index].Name;
+                    Process.Start(ChoosedFile);
+
+                }
+                catch (Exception ex)
+                {
+                    System.Windows.Forms.MessageBox.Show(ex.ToString());
+                }
+            }
+
+
+        }
+
+        private void txtFileSize_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
     }
 }
