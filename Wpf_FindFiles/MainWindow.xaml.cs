@@ -20,16 +20,14 @@ using System.Windows.Shapes;
 
 namespace Wpf_FindFiles
 {
-    /// <summary>
-    /// MainWindow.xaml 的交互逻辑
-    /// </summary>
+    
     public partial class MainWindow : Window
     {
-        private FolderBrowserDialog folderBrowserDialog = null;
+        private FolderBrowserDialog folderBrowserDialog = null;   //可以实现选择文件夹的功能
 
-        private ObservableCollection<FoundFile> FoundFiles = null;
+        private ObservableCollection<FoundFile> FoundFiles = null;  //利用 ObservableCollection 类，WPF /Silverlight 应用程序可以使绑定控件与基础数据源保持同步
 
-        private CancellationTokenSource cts = null;
+        private CancellationTokenSource cts = null;   //CancellationTokenSource控制是否线程的运行与终止
         private ShowFileCopyOrMove win = null;
 
         public MainWindow()
@@ -38,12 +36,12 @@ namespace Wpf_FindFiles
             Init();
         }
 
-        Action<String> showInfo = null;
+        Action<String> showInfo = null;                 //Action是一种委托，使用委托可以提升效率，例如在反射中使用就可以弥补反射所损失的性能
         Action<bool> EnableSearchButton = null;
 
         private void Init()
         {
-            folderBrowserDialog = new FolderBrowserDialog();
+            folderBrowserDialog = new FolderBrowserDialog();            //选择文件夹的功能
             folderBrowserDialog.Description = "选择要搜索的位置";
 
             FoundFiles = new ObservableCollection<FoundFile>();
@@ -93,7 +91,7 @@ namespace Wpf_FindFiles
                         {
                             Name = item.Name,
                             Length = item.Length,
-                            Location = item.DirectoryName     //逗号，为什么？
+                            Location = item.DirectoryName     
                         };
                         Action<FoundFile> addFileDelegte = (file) =>
                             {
